@@ -50,36 +50,36 @@
                 x:Name="CompactQueueExpandAlbumItem"
                 AutomationProperties.AutomationId="CompactQueueExpandAlbumMenu"
                 Click="ExpandAlbumButton_Click"
-                Text="Expand album into tracks" />
+                Text="Expandir álbum em faixas" />
             <MenuFlyoutItem
                 AutomationProperties.AutomationId="CompactQueueCopyLink"
                 Click="ShareLinkButton_OnClick"
-                Text="Copy track link" />
+                Text="Copiar ligação da faixa" />
             <MenuFlyoutItem
                 AutomationProperties.AutomationId="CompactQueueDownloadCover"
                 Click="DownloadCoverButton_OnClick"
-                Text="Download cover" />
+                Text="Descarregar capa" />
             <MenuFlyoutItem
                 AutomationProperties.AutomationId="CompactQueueRemove"
                 Click="RemoveButton_OnClick"
-                Text="Remove from queue" />
+                Text="Remover da fila" />
             <MenuFlyoutSeparator x:Name="CompactQueueLocalSeparator" />
             <MenuFlyoutItem
                 x:Name="CompactQueueOpenSpekItem"
                 AutomationProperties.AutomationId="CompactQueueOpenSpek"
                 Click="OpenSpekButton_Click"
-                Text="View spectrogram" />
+                Text="Ver espectrograma" />
             <MenuFlyoutItem
                 x:Name="CompactQueueOpenLocalItem"
                 AutomationProperties.AutomationId="CompactQueueOpenLocal"
                 Click="OpenLocalButton_Click"
-                Text="Open in File Explorer" />
+                Text="Abrir no Explorador de Ficheiros" />
             <MenuFlyoutSeparator x:Name="CompactQueueOutputSeparator" />
             <MenuFlyoutItem
                 x:Name="CompactQueueOutputItem"
                 AutomationProperties.AutomationId="CompactQueueOutput"
                 Click="OutputButton_OnClick"
-                Text="View command output" />
+                Text="Ver saída do comando" />
         </MenuFlyout>
     </Page.Resources>
 
@@ -117,7 +117,7 @@
                     Click="CompactQueueButton_Click"
                     IsChecked="{x:Bind ViewModel.QueueDisplay.IsCompact, Mode=OneWay}"
                     IsEnabled="{x:Bind ViewModel.QueueDisplay.CanChangeLayout, Mode=OneWay}"
-                    ToolTipService.ToolTip="Compact queue">
+                    ToolTipService.ToolTip="Vista compacta da fila">
                     <FontIcon VerticalAlignment="Center" FontSize="16" Glyph="&#xE8FD;" />
                 </ToggleButton>
                 <Button
@@ -131,7 +131,7 @@
                         x:Name="CountText"
                         Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                         TextWrapping="Wrap"
-                        Text="No tracks" />
+                        Text="Sem faixas" />
                 </Button>
                 <Button
                     x:Name="ProgressTextButton"
@@ -156,7 +156,7 @@
                     x:Name="ConvertDialogOpenButton"
                     VerticalAlignment="Center"
                     Click="ConvertDialogOpenButton_OnClick"
-                    ToolTipService.ToolTip="Convert tracks to other sources">
+                    ToolTipService.ToolTip="Converter faixas para outras fontes">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             x:Name="ConvertDialogOpenIcon"
@@ -168,7 +168,7 @@
                                 <RotateTransform Angle="90" />
                             </FontIcon.RenderTransform>
                         </FontIcon>
-                        <TextBlock Text="Convert" />
+                        <TextBlock Text="Converter" />
                     </StackPanel>
                 </Button>
 
@@ -176,14 +176,14 @@
                     x:Name="DownloadAllButton"
                     VerticalAlignment="Center"
                     Click="DownloadAllButton_Click"
-                    ToolTipService.ToolTip="Download all tracks in queue">
+                    ToolTipService.ToolTip="Descarregar todas as faixas da fila">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             x:Name="DownloadAllButtonIcon"
                             Margin="0,0,8,0"
                             FontSize="16"
                             Glyph="&#xE896;" />
-                        <TextBlock Text="Download" />
+                        <TextBlock Text="Descarregar" />
                     </StackPanel>
                 </Button>
                 <Button
@@ -191,17 +191,17 @@
                     VerticalAlignment="Center"
                     AutomationProperties.AutomationId="CreatePlaylistButton"
                     AutomationProperties.Name="Upload playlist"
-                    ToolTipService.ToolTip="Create a playlist or add queued tracks to an existing playlist"
+                    ToolTipService.ToolTip="Criar uma lista de reprodução ou adicionar as faixas da fila a uma lista existente"
                     Click="CreatePlaylistButton_Click">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <FontIcon FontSize="16" Glyph="&#xE898;" />
-                        <TextBlock Text="Upload" />
+                        <TextBlock Text="Carregar" />
                     </StackPanel>
                 </Button>
                 <Button
                     x:Name="RestoreQueueButton"
                     VerticalAlignment="Center"
-                    ToolTipService.ToolTip="Restore queue from backup"
+                    ToolTipService.ToolTip="Restaurar fila a partir de cópia de segurança"
                     Click="RestoreQueueButton_OnClick">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
@@ -209,21 +209,21 @@
                             Margin="0,0,8,0"
                             FontSize="16"
                             Glyph="&#xE777;" />
-                        <TextBlock x:Name="RestoreQueueButtonText" Text="Restore" />
+                        <TextBlock x:Name="RestoreQueueButtonText" Text="Restaurar" />
                     </StackPanel>
                 </Button>
                 <Button
                     x:Name="ClearButton"
                     VerticalAlignment="Center"
                     Click="ClearButton_OnClick"
-                    ToolTipService.ToolTip="Clear the queue">
+                    ToolTipService.ToolTip="Limpar a fila">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             x:Name="ClearIcon"
                             Margin="0,0,8,0"
                             FontSize="16"
                             Glyph="&#xE894;" />
-                        <TextBlock Text="Clear" />
+                        <TextBlock Text="Limpar" />
                     </StackPanel>
                 </Button>
                 <Button
@@ -232,7 +232,7 @@
                     Background="Transparent"
                     BorderBrush="Transparent"
                     Click="ConvertStopButton_OnClick"
-                    ToolTipService.ToolTip="Stop conversion"
+                    ToolTipService.ToolTip="Parar conversão"
                     Visibility="Collapsed">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
@@ -244,7 +244,7 @@
                         <TextBlock
                             x:Name="ConvertStopText"
                             Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
-                            Text="Stop" />
+                            Text="Parar" />
                     </StackPanel>
                 </Button>
             </controls1:WrapPanel>
@@ -434,10 +434,10 @@
                                 <Button
                                     Padding="4"
                                     AutomationProperties.AutomationId="QueueExpandAlbum"
-                                    AutomationProperties.Name="Expand album into tracks"
+                                    AutomationProperties.Name="Expandir álbum em faixas"
                                     Click="ExpandAlbumButton_Click"
                                     Tag="{x:Bind}"
-                                    ToolTipService.ToolTip="Replace album with individual tracks"
+                                    ToolTipService.ToolTip="Substituir álbum pelas faixas individuais"
                                     Visibility="{x:Bind IsAlbum, Mode=OneWay, Converter={StaticResource VisibilityConverter}}">
                                     <FontIcon FontSize="20" Glyph="&#xE8A9;" />
                                 </Button>
@@ -448,7 +448,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="ShareLinkButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Copy track link"
+                                    ToolTipService.ToolTip="Copiar ligação da faixa"
                                     Visibility="{x:Bind viewModels:QueueShortcuts.Shared.ShareVisibility, Mode=OneWay}">
                                     <FontIcon FontSize="20" Glyph="&#xE71B;" />
                                 </Button>
@@ -459,7 +459,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="DownloadCoverButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Download cover"
+                                    ToolTipService.ToolTip="Descarregar capa"
                                     Visibility="{x:Bind viewModels:QueueShortcuts.Shared.DownloadCoverVisibility, Mode=OneWay}">
                                     <FontIcon FontSize="20" Glyph="&#xEE71;" />
                                 </Button>
@@ -470,7 +470,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="RemoveButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Remove from queue"
+                                    ToolTipService.ToolTip="Remover da fila"
                                     Visibility="{x:Bind viewModels:QueueShortcuts.Shared.RemoveVisibility, Mode=OneWay}">
                                     <FontIcon FontSize="20" Glyph="&#xECC9;" />
                                 </Button>
@@ -491,7 +491,7 @@
                                         VerticalAlignment="Bottom"
                                         Click="OpenSpekButton_Click"
                                         Tag="{Binding}"
-                                        ToolTipService.ToolTip="View spectrogram">
+                                        ToolTipService.ToolTip="Ver espectrograma">
                                         <FontIcon FontSize="20" Glyph="&#xE9D2;" />
                                     </Button>
                                     <Button
@@ -501,7 +501,7 @@
                                         VerticalAlignment="Bottom"
                                         Click="OpenLocalButton_Click"
                                         Tag="{Binding}"
-                                        ToolTipService.ToolTip="Open in File Explorer">
+                                        ToolTipService.ToolTip="Abrir no Explorador de Ficheiros">
                                         <FontIcon FontSize="20" Glyph="&#xE8DA;" />
                                     </Button>
                                 </StackPanel>
@@ -515,7 +515,7 @@
                                 Click="OutputButton_OnClick"
                                 Style="{ThemeResource AccentButtonStyle}"
                                 Tag="{Binding}"
-                                ToolTipService.ToolTip="View command output"
+                                ToolTipService.ToolTip="Ver saída do comando"
                                 Visibility="{x:Bind ResultString, Mode=OneWay, Converter={StaticResource PathToVisibilityConverter}}">
                                 <FontIcon FontSize="20" Glyph="&#xE756;" />
                             </Button>
@@ -553,7 +553,7 @@
             Margin="0,-8,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Text="Add tracks through Search or Local."
+            Text="Adiciona faixas através de Pesquisa ou Biblioteca local."
             Visibility="Visible" />
 
         <views:PreviewPane
@@ -612,13 +612,13 @@
         <!--  Content Dialog for cli output  -->
         <ContentDialog
             x:Name="OutputDialog"
-            Title="Output"
-            CloseButtonText="Close"
+            Title="Saída"
+            CloseButtonText="Fechar"
             IsPrimaryButtonEnabled="True"
             IsSecondaryButtonEnabled="True"
             PrimaryButtonClick="OutputDialog_OnPrimaryButtonClick"
             PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-            PrimaryButtonText="Copy">
+            PrimaryButtonText="Copiar">
             <StackPanel Spacing="12">
                 <TextBlock x:Name="OutputMessage" Margin="0,0,0,0" />
                 <RichEditBox
@@ -631,16 +631,16 @@
         <!--  Content Dialog for clearing queue  -->
         <ContentDialog
             x:Name="ClearQueueDialog"
-            Title="Clear Sources"
-            CloseButtonText="Cancel"
+            Title="Limpar fontes"
+            CloseButtonText="Cancelar"
             IsPrimaryButtonEnabled="True"
             PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-            PrimaryButtonText="Clear">
+            PrimaryButtonText="Limpar">
             <StackPanel Spacing="0">
                 <CheckBox
                     x:Name="ClearSourcesAllCheckBox"
                     Click="ClearSourcesAllCheckBox_Click"
-                    Content="Select all"
+                    Content="Selecionar tudo"
                     IsThreeState="True" />
                 <ItemsControl ItemsSource="{x:Bind ClearOptions}">
                     <ItemsControl.ItemTemplate>
@@ -662,7 +662,7 @@
             IsSecondaryButtonEnabled="True"
             PrimaryButtonClick="RestoreQueueDialog_OnPrimaryButtonClick"
             SecondaryButtonClick="RestoreQueueDialog_OnSecondaryButtonClick"
-            SecondaryButtonText="Export">
+            SecondaryButtonText="Exportar">
             <StackPanel Spacing="12">
                 <InfoBar
                     x:Name="RestoreQueueDialogInfoBar"
@@ -678,7 +678,7 @@
                     x:Name="RestoreQueueBackupComboBox"
                     HorizontalAlignment="Stretch"
                     DisplayMemberPath="DisplayName"
-                    PlaceholderText="Select a backup" />
+                    PlaceholderText="Selecionar uma cópia de segurança" />
                 <StackPanel
                     HorizontalAlignment="Right"
                     Orientation="Horizontal"
@@ -686,7 +686,7 @@
                     <Button
                         x:Name="ImportBackupButton"
                         Click="ImportBackupButton_OnClick"
-                        Content="Browse" />
+                        Content="Procurar" />
                 </StackPanel>
             </StackPanel>
         </ContentDialog>
@@ -694,12 +694,12 @@
         <!--  Content Dialog for conversion  -->
         <ContentDialog
             x:Name="ConversionDialog"
-            Title="Convert Sources"
-            CloseButtonText="Close"
+            Title="Converter fontes"
+            CloseButtonText="Fechar"
             IsPrimaryButtonEnabled="True"
             PrimaryButtonClick="ConversionDialog_OnPrimaryButtonClick"
             PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-            PrimaryButtonText="Convert">
+            PrimaryButtonText="Converter">
             <StackPanel>
                 <InfoBar
                     Margin="0,0,0,12"
@@ -718,7 +718,7 @@
                             Margin="0,0,0,2"
                             Foreground="{ThemeResource TextFillColorSecondary}"
                             Style="{ThemeResource CaptionTextBlockStyle}"
-                            Text="Input" />
+                            Text="Entrada" />
                         <ItemsControl ItemsSource="{x:Bind ConversionOptions}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="models:SourceOption">
@@ -736,13 +736,13 @@
                             Margin="0,0,0,4"
                             Foreground="{ThemeResource TextFillColorSecondary}"
                             Style="{ThemeResource CaptionTextBlockStyle}"
-                            Text="Output" />
+                            Text="Saída" />
                         <ComboBox
                             x:Name="OutputComboBox"
                             Margin="0,0,0,0"
                             HorizontalAlignment="Stretch"
-                            PlaceholderText="Select output"
-                            ToolTipService.ToolTip="The source to convert to" />
+                            PlaceholderText="Selecionar destino"
+                            ToolTipService.ToolTip="A fonte de destino da conversão" />
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -754,8 +754,8 @@
         <!--  Content Dialog for conversion results  -->
         <ContentDialog
             x:Name="ConversionResultsDialog"
-            Title="Conversion Summary"
-            CloseButtonText="Close">
+            Title="Resumo da conversão"
+            CloseButtonText="Fechar">
             <StackPanel>
                 <TabView
                     x:Name="ConversionTabView"
@@ -779,7 +779,7 @@
                         <TabViewItem
                             x:Name="SuccessTab"
                             HorizontalContentAlignment="Stretch"
-                            Header="Success"
+                            Header="Sucesso"
                             IsClosable="False">
                             <TabViewItem.HeaderTemplate>
                                 <DataTemplate>
@@ -798,7 +798,7 @@
                         <TabViewItem
                             x:Name="WarningTab"
                             HorizontalContentAlignment="Stretch"
-                            Header="Warning"
+                            Header="Aviso"
                             IsClosable="False">
                             <TabViewItem.HeaderTemplate>
                                 <DataTemplate>
@@ -817,7 +817,7 @@
                         <TabViewItem
                             x:Name="ErrorTab"
                             HorizontalContentAlignment="Stretch"
-                            Header="Error"
+                            Header="Erro"
                             IsClosable="False">
                             <TabViewItem.HeaderTemplate>
                                 <DataTemplate>
