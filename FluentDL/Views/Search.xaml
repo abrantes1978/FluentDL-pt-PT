@@ -35,13 +35,13 @@
         <!--  Advanced search dialog  -->
         <ContentDialog
             x:Name="SearchDialog"
-            Title="Advanced Search"
-            CloseButtonText="Cancel"
+            Title="Pesquisa avançada"
+            CloseButtonText="Cancelar"
             IsPrimaryButtonEnabled="True"
             IsSecondaryButtonEnabled="True"
             PrimaryButtonClick="SearchDialogClick"
             PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-            PrimaryButtonText="Search">
+            PrimaryButtonText="Pesquisar">
             <StackPanel>
                 <InfoBar
                     Margin="0,0,0,12"
@@ -54,9 +54,9 @@
                     x:Name="artistNameInput"
                     Margin="0,0,0,8"
                     HorizontalAlignment="Stretch"
-                    Header="Artist"
-                    PlaceholderText="Enter name"
-                    ToolTipService.ToolTip="Artist name">
+                    Header="Artista"
+                    PlaceholderText="Introduzir nome"
+                    ToolTipService.ToolTip="Nome do artista">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock
@@ -70,9 +70,9 @@
                     x:Name="trackNameInput"
                     Margin="0,0,0,8"
                     HorizontalAlignment="Stretch"
-                    Header="Track"
-                    PlaceholderText="Enter name"
-                    ToolTipService.ToolTip="Track name">
+                    Header="Faixa"
+                    PlaceholderText="Introduzir nome"
+                    ToolTipService.ToolTip="Nome da faixa">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock
@@ -86,9 +86,9 @@
                     x:Name="albumNameInput"
                     Margin="0,0,0,8"
                     HorizontalAlignment="Stretch"
-                    Header="Album"
-                    PlaceholderText="Enter name"
-                    ToolTipService.ToolTip="Album name">
+                    Header="Álbum"
+                    PlaceholderText="Introduzir nome"
+                    ToolTipService.ToolTip="Nome do álbum">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock
@@ -133,30 +133,30 @@
                     Grid.Column="0"
                     Padding="0"
                     HorizontalAlignment="Stretch"
-                    PlaceholderText="Find a track or paste a link"
+                    PlaceholderText="Procura uma faixa ou cola uma ligação"
                     QueryIcon="Find"
                     QuerySubmitted="SearchBox_OnQuerySubmitted"
-                    ToolTipService.ToolTip="Search" />
+                    ToolTipService.ToolTip="Pesquisar" />
 
                 <Button
                     x:Name="ShowDialogButton"
                     Grid.Column="1"
                     Click="ShowDialog_OnClick_Click"
-                    ToolTipService.ToolTip="Open advanced search">
+                    ToolTipService.ToolTip="Abrir pesquisa avançada">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             x:Name="ShowDialogIcon"
                             Margin="0,0,8,0"
                             FontSize="16"
                             Glyph="&#xE71C;" />
-                        <TextBlock Text="Advanced" />
+                        <TextBlock Text="Avançado" />
                     </StackPanel>
                 </Button>
 
                 <DropDownButton
                     x:Name="SourceButton"
                     Grid.Column="2"
-                    ToolTipService.ToolTip="Configure search sources">
+                    ToolTipService.ToolTip="Configurar fontes de pesquisa">
                     <StackPanel Orientation="Horizontal">
 
                         <!--  Add the FontIcon here  -->
@@ -177,7 +177,7 @@
                             Fill="White"
                             StrokeThickness="0" />
 
-                        <TextBlock Text="Source" />
+                        <TextBlock Text="Fonte" />
                     </StackPanel>
                     <DropDownButton.Flyout>
                         <Flyout Closed="FlyoutBase_OnClosed" Placement="Bottom">
@@ -185,13 +185,13 @@
                                 <!--
                                 <NumberBox
                                     Width="160"
-                                    Header="Results limit"
+                                    Header="Limite de resultados"
                                     LargeChange="10"
                                     Maximum="5000"
                                     Minimum="1"
                                     SmallChange="5"
                                     SpinButtonPlacementMode="Inline"
-                                    ToolTipService.ToolTip="Limit the number of search results"
+                                    ToolTipService.ToolTip="Limitar o número de resultados da pesquisa"
                                     Value="{x:Bind Path=ViewModel.ResultsLimit, Mode=TwoWay}">
                                     <NumberBox.HeaderTemplate>
                                         <DataTemplate>
@@ -204,7 +204,7 @@
                                                     HorizontalAlignment="Right"
                                                     FontSize="16"
                                                     Glyph="&#xE946;"
-                                                    ToolTipService.ToolTip="Maximum results for Spotify is 50" />
+                                                    ToolTipService.ToolTip="O número máximo de resultados do Spotify é 50" />
                                             </Grid>
                                         </DataTemplate>
                                     </NumberBox.HeaderTemplate>
@@ -213,7 +213,7 @@
                                 <RadioButtons
                                     x:Name="SourceRadioButtons"
                                     Padding="0"
-                                    Header="Override Source"
+                                    Header="Substituir fonte"
                                     ItemsSource="{x:Bind SearchSources}"
                                     SelectedIndex="0">
                                     <RadioButtons.HeaderTemplate>
@@ -232,9 +232,9 @@
                                 </RadioButtons>
                                 <ToggleSwitch
                                     x:Name="AlbumModeSwitch"
-                                    Header="Album Mode"
+                                    Header="Modo de álbuns"
                                     IsOn="{x:Bind Path=ViewModel.AlbumMode, Mode=TwoWay}"
-                                    ToolTipService.ToolTip="Toggle whether search results are albums or singles">
+                                    ToolTipService.ToolTip="Alternar entre resultados de pesquisa de álbuns ou singles">
                                     <ToggleSwitch.HeaderTemplate>
                                         <DataTemplate>
                                             <TextBlock
@@ -259,7 +259,7 @@
                     Background="Transparent"
                     BorderBrush="Transparent"
                     Click="AddToQueueButton_OnClick"
-                    ToolTipService.ToolTip="Add all results to queue">
+                    ToolTipService.ToolTip="Adicionar todos os resultados à fila">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             x:Name="ResultsIcon"
@@ -278,9 +278,9 @@
                         Background="Transparent"
                         BorderBrush="Transparent"
                         DropDownOpened="ComboBox_OnDropDownOpened"
-                        PlaceholderText="Sort order:  Ascending"
+                        PlaceholderText="Ordem: crescente"
                         SelectionChanged="SortOrder_SelectionChanged"
-                        ToolTipService.ToolTip="Sort from least to greatest value or vice versa">
+                        ToolTipService.ToolTip="Ordenar por ordem crescente ou decrescente">
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="views:SortObject">
                                 <StackPanel Orientation="Horizontal">
@@ -293,8 +293,8 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                         <ComboBox.Items>
-                            <views:SortObject Highlight="  Ascending" Text="Sort order:" />
-                            <views:SortObject Highlight="  Descending" Text="Sort order:" />
+                            <views:SortObject Highlight="  Ascending" Text="Ordem:" />
+                            <views:SortObject Highlight="  Descending" Text="Ordem:" />
                         </ComboBox.Items>
                     </ComboBox>
                     <ComboBox
@@ -302,9 +302,9 @@
                         Background="Transparent"
                         BorderBrush="Transparent"
                         DropDownOpened="ComboBox_OnDropDownOpened"
-                        PlaceholderText="Sort by:  Default"
+                        PlaceholderText="Ordenar por: predefinição"
                         SelectionChanged="SortBox_SelectionChanged"
-                        ToolTipService.ToolTip="Sort results by field">
+                        ToolTipService.ToolTip="Ordenar resultados por campo">
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="views:SortObject">
                                 <StackPanel Orientation="Horizontal">
@@ -317,11 +317,11 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                         <ComboBox.Items>
-                            <views:SortObject Highlight="  Default" Text="Sort by:" />
-                            <views:SortObject Highlight="  A - Z" Text="Sort by:" />
-                            <views:SortObject Highlight="  Artist" Text="Sort by:" />
-                            <views:SortObject Highlight="  Release date" Text="Sort by:" />
-                            <views:SortObject Highlight="  Popularity" Text="Sort by:" />
+                            <views:SortObject Highlight="  Default" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  A - Z" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  Artist" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  Release date" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  Popularity" Text="Ordenar por:" />
                         </ComboBox.Items>
                     </ComboBox>
                     <Button
@@ -330,7 +330,7 @@
                         Background="Transparent"
                         BorderBrush="Transparent"
                         Click="StopSearchButton_OnClick"
-                        ToolTipService.ToolTip="Stop loading results">
+                        ToolTipService.ToolTip="Parar de carregar resultados">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon
                                 x:Name="StopSearchIcon"
@@ -338,7 +338,7 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xE71A;" />
-                            <TextBlock Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" Text="Stop" />
+                            <TextBlock Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" Text="Parar" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -362,7 +362,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Style="{ThemeResource BodyTextBlockStyle}"
-                Text="No results found." />
+                Text="Não foram encontrados resultados." />
 
             <ListView
                 x:Name="CustomListView"
@@ -528,7 +528,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="AddQueueButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Add to queue"
+                                    ToolTipService.ToolTip="Adicionar à fila"
                                     Visibility="{Binding ElementName=RootPage, Path=ViewModel.AddQueueVisibility}">
                                     <FontIcon
                                         x:Name="AddQueueIcon"
@@ -542,7 +542,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="DownloadButton_Click"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Download track"
+                                    ToolTipService.ToolTip="Descarregar faixa"
                                     Visibility="{Binding ElementName=RootPage, Path=ViewModel.DownloadVisibility}">
                                     <FontIcon
                                         x:Name="DownloadIcon"
@@ -556,7 +556,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="ShareLinkButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Copy track link"
+                                    ToolTipService.ToolTip="Copiar ligação da faixa"
                                     Visibility="{Binding ElementName=RootPage, Path=ViewModel.ShareVisibility}">
                                     <FontIcon
                                         x:Name="ShareLinkIcon"
@@ -570,7 +570,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="OpenInBrowserButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Open in browser"
+                                    ToolTipService.ToolTip="Abrir no navegador"
                                     Visibility="{Binding ElementName=RootPage, Path=ViewModel.OpenVisibility}">
                                     <FontIcon
                                         x:Name="OpenLinkIcon"
