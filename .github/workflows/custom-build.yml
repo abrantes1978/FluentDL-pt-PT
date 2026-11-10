@@ -1,27 +1,23 @@
-name: FluentDL Custom Build
+name: FluentDL PT-PT Build
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
-    inputs:
-      architecture:
-        description: Windows architecture
-        required: true
-        type: choice
-        options:
-          - x64
-          - arm64
-        default: x64
 
 permissions:
   contents: read
 
 jobs:
   build:
-    name: Test and package (${{ inputs.architecture }})
-    runs-on: ${{ inputs.architecture == 'arm64' && 'windows-11-arm' || 'windows-latest' }}
+    name: Test and package (x64)
+    runs-on: windows-latest
     steps:
-      - name: Check out selected branch
+      - name: Check out customized PT-PT version
         uses: actions/checkout@v4
+        with:
+          ref: custom/pt-PT-artwork-600
 
       - name: Pull Git LFS assets
         uses: ./.github/actions/lfs-pull
@@ -45,18 +41,14 @@ jobs:
 
       - name: Build sideload package
         working-directory: FluentDL
-        run: >
-          dotnet run --file PackageSelect/BuildPackages.cs --
-          --version $env:VERSION
-          --channel Sideload
-          --architecture ${{ inputs.architecture }}
-          --no-sandbox
-          --output "${{ runner.temp }}/packages"
+        shell: pwsh
+        run: |
+          dotnet run --file PackageSelect/BuildPackages.cs -- --version $env:VERSION --channel Sideload --architecture x64 --no-sandbox --output "$env:GITHUB_WORKSPACE/packages"
 
       - name: Upload installable ZIP
         uses: actions/upload-artifact@v7
         with:
-          path: ${{ runner.temp }}/packages/${{ env.VERSION }}/Sideload/FluentDL_${{ env.VERSION }}_${{ inputs.architecture }}.zip
+          path: packages/**/*.zip
           archive: false
           if-no-files-found: error
           retention-days: 14
