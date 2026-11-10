@@ -30,10 +30,10 @@
             <views:CompactLocalRow Item="{x:Bind}" />
         </DataTemplate>
         <MenuFlyout x:Name="CompactLocalMenu">
-            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalAdd" Text="Add to queue" Click="AddToQueueShortcutButton_OnClick" />
-            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalEdit" Text="Edit metadata" Click="EditButton_OnClick" />
-            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalAnalyze" Text="View spectrogram" Click="CompactLocalAnalyze_Click" />
-            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalOpen" Text="Open in File Explorer" Click="OpenInBrowserButton_OnClick" />
+            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalAdd" Text="Adicionar à fila" Click="AddToQueueShortcutButton_OnClick" />
+            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalEdit" Text="Editar metadados" Click="EditButton_OnClick" />
+            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalAnalyze" Text="Ver espectrograma" Click="CompactLocalAnalyze_Click" />
+            <MenuFlyoutItem AutomationProperties.AutomationId="CompactLocalOpen" Text="Abrir no Explorador de Ficheiros" Click="OpenInBrowserButton_OnClick" />
         </MenuFlyout>
     </Page.Resources>
 
@@ -44,12 +44,12 @@
         <!--  Metadata dialog  -->
         <ContentDialog
             x:Name="MetadataDialog"
-            Title="Edit Metadata"
+            Title="Editar metadados"
             CloseButtonClick="MetadataDialog_OnCloseButtonClick"
-            CloseButtonText="Cancel"
+            CloseButtonText="Cancelar"
             PrimaryButtonClick="MetadataDialog_OnPrimaryButtonClick"
             PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-            PrimaryButtonText="Save">
+            PrimaryButtonText="Guardar">
             <ContentDialog.Resources>
                 <x:Double x:Key="ContentDialogMaxWidth">700</x:Double>
             </ContentDialog.Resources>
@@ -76,7 +76,7 @@
                                 Margin="0,0,8,0"
                                 FontSize="16"
                                 Glyph="&#xEE71;" />
-                            <TextBlock Text="Add cover art" />
+                            <TextBlock Text="Adicionar capa" />
                         </StackPanel>
                     </Button>
                     <TextBox
@@ -86,7 +86,7 @@
                         HorizontalAlignment="Stretch"
                         CornerRadius="0, 4, 4, 0"
                         IsReadOnly="False"
-                        PlaceholderText="No image file selected"
+                        PlaceholderText="Nenhum ficheiro de imagem selecionado"
                         TextWrapping="NoWrap" />
 
                     <controls:DataGrid
@@ -112,13 +112,13 @@
                             <controls:DataGridTextColumn
                                 Width="Auto"
                                 Binding="{Binding Key}"
-                                Header="Key"
+                                Header="Campo"
                                 IsReadOnly="True" />
                             <controls:DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Value}"
                                 Foreground="{StaticResource AccentTextFillColorPrimaryBrush}"
-                                Header="Value"
+                                Header="Valor"
                                 IsReadOnly="False" />
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
@@ -152,14 +152,14 @@
                         x:Name="UploadButton"
                         VerticalAlignment="Center"
                         Click="UploadButton_OnClick"
-                        ToolTipService.ToolTip="Scan a folder for audio files (recursive)">
+                        ToolTipService.ToolTip="Procurar ficheiros de áudio numa pasta e subpastas">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon
                                 x:Name="UploadButtonIcon"
                                 Margin="0,0,8,0"
                                 FontSize="16"
                                 Glyph="&#xE8F4;" />
-                            <TextBlock Text="Add folder" />
+                            <TextBlock Text="Adicionar pasta" />
                         </StackPanel>
                     </Button>
 
@@ -167,14 +167,14 @@
                         x:Name="UploadFileButton"
                         VerticalAlignment="Center"
                         Click="UploadFileButton_OnClick"
-                        ToolTipService.ToolTip="Browse for audio files">
+                        ToolTipService.ToolTip="Procurar ficheiros de áudio">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon
                                 x:Name="UploadFileButtonIcon"
                                 Margin="0,0,8,0"
                                 FontSize="16"
                                 Glyph="&#xE898;" />
-                            <TextBlock Text="Add files" />
+                            <TextBlock Text="Adicionar ficheiros" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -187,35 +187,35 @@
                         x:Name="ConvertDialogOpenButton"
                         VerticalAlignment="Center"
                         Click="ConvertDialogOpenButton_OnClick"
-                        ToolTipService.ToolTip="Convert tracks to other sources">
+                        ToolTipService.ToolTip="Converter faixas para outras fontes">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon
                                 x:Name="ConvertDialogOpenIcon"
                                 Margin="0,0,8,0"
                                 FontSize="16"
                                 Glyph="&#xF623;" />
-                            <TextBlock Text="Convert" />
+                            <TextBlock Text="Converter" />
                         </StackPanel>
                     </Button>
                     <Button
                         x:Name="LyricsDialogOpenButton"
                         VerticalAlignment="Center"
                         Click="LyricsDialogOpenButton_OnClick"
-                        ToolTipService.ToolTip="Download lyrics for local tracks">
+                        ToolTipService.ToolTip="Descarregar letras das faixas locais">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon
                                 x:Name="LyricsDialogOpenIcon"
                                 Margin="0,0,8,0"
                                 FontSize="16"
                                 Glyph="&#xED1E;" />
-                            <TextBlock Text="Lyrics" />
+                            <TextBlock Text="Letras" />
                         </StackPanel>
                     </Button>
                     <Button
                         x:Name="ReplayGainDialogOpenButton"
                         VerticalAlignment="Center"
                         Click="ReplayGainDialogOpenButton_OnClick"
-                        ToolTipService.ToolTip="Write ReplayGain tags to local tracks">
+                        ToolTipService.ToolTip="Escrever etiquetas ReplayGain nas faixas locais">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon
                                 x:Name="ReplayGainDialogOpenIcon"
@@ -235,7 +235,7 @@
                                 Margin="0,0,8,0"
                                 FontSize="16"
                                 Glyph="&#xE894;" />
-                            <TextBlock Text="Clear" />
+                            <TextBlock Text="Limpar" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -246,7 +246,7 @@
                 <StackPanel Orientation="Horizontal" Spacing="4">
                     <ToggleButton x:Name="CompactLocalButton" MinWidth="32" MinHeight="32" Padding="8,4" VerticalAlignment="Center"
                                   AutomationProperties.AutomationId="CompactLocalButton" AutomationProperties.Name="List layout"
-                                  ToolTipService.ToolTip="Compact Local list" Click="CompactLocalButton_Click"
+                                  ToolTipService.ToolTip="Vista compacta da biblioteca local" Click="CompactLocalButton_Click"
                                   IsChecked="{x:Bind ViewModel.LocalDisplay.IsCompact, Mode=OneWay}"
                                   IsEnabled="{x:Bind ViewModel.LocalDisplay.CanChangeLayout, Mode=OneWay}">
                         <FontIcon FontSize="16" Glyph="&#xE8FD;" />
@@ -277,7 +277,7 @@
                         Background="Transparent"
                         BorderBrush="Transparent"
                         DropDownOpened="ComboBox_OnDropDownOpened"
-                        PlaceholderText="Sort order:  Ascending"
+                        PlaceholderText="Ordem: crescente"
                         SelectionChanged="SortOrderComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="views:SortObject">
@@ -291,8 +291,8 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                         <ComboBox.Items>
-                            <views:SortObject Highlight="  Ascending" Text="Sort order:" />
-                            <views:SortObject Highlight="  Descending" Text="Sort order:" />
+                            <views:SortObject Highlight="  Ascending" Text="Ordem:" />
+                            <views:SortObject Highlight="  Descending" Text="Ordem:" />
                         </ComboBox.Items>
                     </ComboBox>
                     <ComboBox
@@ -300,7 +300,7 @@
                         Background="Transparent"
                         BorderBrush="Transparent"
                         DropDownOpened="ComboBox_OnDropDownOpened"
-                        PlaceholderText="Sort by:  Upload order"
+                        PlaceholderText="Ordenar por: ordem de adição"
                         SelectionChanged="SortComboBox_OnSelectionChanged">
                         <ComboBox.ItemTemplate>
                             <DataTemplate x:DataType="views:SortObject">
@@ -314,12 +314,12 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                         <ComboBox.Items>
-                            <views:SortObject Highlight="  Upload order" Text="Sort by:" />
-                            <views:SortObject Highlight="  A - Z" Text="Sort by:" />
-                            <views:SortObject Highlight="  Artist" Text="Sort by:" />
-                            <views:SortObject Highlight="  Release date" Text="Sort by:" />
-                            <views:SortObject Highlight="  File name" Text="Sort by:" />
-                            <views:SortObject Highlight="  File creation date" Text="Sort by:" />
+                            <views:SortObject Highlight="  Upload order" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  A - Z" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  Artist" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  Release date" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  File name" Text="Ordenar por:" />
+                            <views:SortObject Highlight="  File creation date" Text="Ordenar por:" />
                         </ComboBox.Items>
                     </ComboBox>
                 </StackPanel>
@@ -472,7 +472,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="AddToQueueShortcutButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Add to queue"
+                                    ToolTipService.ToolTip="Adicionar à fila"
                                     Visibility="{Binding ElementName=RootPage, Path=ViewModel.AddVisibility}">
                                     <FontIcon FontSize="20" Glyph="&#xE710;" />
                                 </Button>
@@ -483,7 +483,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="EditButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Edit song metadata"
+                                    ToolTipService.ToolTip="Editar metadados da faixa"
                                     Visibility="{Binding ElementName=RootPage, Path=ViewModel.EditVisibility}">
                                     <FontIcon FontSize="20" Glyph="&#xE70F;" />
                                 </Button>
@@ -494,7 +494,7 @@
                                     VerticalAlignment="Bottom"
                                     Click="OpenInBrowserButton_OnClick"
                                     Tag="{Binding}"
-                                    ToolTipService.ToolTip="Open in File Explorer"
+                                    ToolTipService.ToolTip="Abrir no Explorador de Ficheiros"
                                     Visibility="{Binding ElementName=RootPage, Path=ViewModel.OpenVisibility}">
                                     <FontIcon FontSize="20" Glyph="&#xE8DA;" />
                                 </Button>
@@ -563,17 +563,17 @@
         <!--  Convert Dialog  -->
         <ContentDialog
             x:Name="ConversionDialog"
-            Title="Convert Audio Format"
+            Title="Converter formato de áudio"
             CloseButtonClick="ConversionDialog_OnCloseButtonClick"
-            CloseButtonText="Close"
+            CloseButtonText="Fechar"
             Closing="ConversionDialog_OnClosing"
             IsPrimaryButtonEnabled="True"
             IsSecondaryButtonEnabled="True"
             PrimaryButtonClick="ConversionDialog_OnPrimaryButtonClick"
             PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-            PrimaryButtonText="Convert"
+            PrimaryButtonText="Converter"
             SecondaryButtonClick="ConversionDialog_SecondaryButtonClick"
-            SecondaryButtonText="Cancel">
+            SecondaryButtonText="Cancelar">
             <ContentDialog.Resources>
                 <x:Double x:Key="ContentDialogMaxWidth">1000</x:Double>
             </ContentDialog.Resources>
@@ -613,7 +613,7 @@
                         Margin="0,0,0,4"
                         Foreground="{ThemeResource TextFillColorSecondary}"
                         Style="{ThemeResource CaptionTextBlockStyle}"
-                        Text="Output Folder" />
+                        Text="Pasta de destino" />
 
                     <Grid Margin="0,0,0,8">
                         <Grid.ColumnDefinitions>
@@ -640,7 +640,7 @@
                             HorizontalAlignment="Stretch"
                             CornerRadius="0, 4, 4, 0"
                             IsReadOnly="False"
-                            PlaceholderText="No folder selected"
+                            PlaceholderText="Nenhuma pasta selecionada"
                             TextWrapping="NoWrap" />
                     </Grid>
 
@@ -649,14 +649,14 @@
                             Margin="0,0,0,4"
                             Foreground="{ThemeResource TextFillColorSecondary}"
                             Style="{ThemeResource CaptionTextBlockStyle}"
-                            Text="Output Format" />
+                            Text="Formato de destino" />
                         <ComboBox
                             x:Name="OutputComboBox"
                             Margin="0,0,0,0"
                             HorizontalAlignment="Stretch"
-                            PlaceholderText="Select output format"
+                            PlaceholderText="Selecionar formato de destino"
                             SelectionChanged="OutputComboBox_OnSelectionChanged"
-                            ToolTipService.ToolTip="The format to convert to" />
+                            ToolTipService.ToolTip="O formato para o qual converter" />
                         <TextBlock
                             x:Name="SubsettingHeader"
                             Margin="0,8,0,4"
@@ -676,7 +676,7 @@
                         Margin="0,0,0,4"
                         Foreground="{ThemeResource TextFillColorSecondary}"
                         Style="{ThemeResource CaptionTextBlockStyle}"
-                        Text="Conversion Results" />
+                        Text="Resultados da conversão" />
                     <Border
                         x:Name="ConversionListCard"
                         Padding="4,8,4,8"
@@ -718,17 +718,17 @@
         </ContentDialog>
         <ContentDialog
             x:Name="LyricsDialog"
-            Title="Download Lyrics"
+            Title="Descarregar letras"
             CloseButtonClick="LyricsDialog_OnCloseButtonClick"
-            CloseButtonText="Close"
+            CloseButtonText="Fechar"
             Closing="LyricsDialog_OnClosing"
             IsPrimaryButtonEnabled="True"
             IsSecondaryButtonEnabled="True"
             PrimaryButtonClick="LyricsDialog_OnPrimaryButtonClick"
             PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
-            PrimaryButtonText="Download"
+            PrimaryButtonText="Descarregar"
             SecondaryButtonClick="LyricsDialog_SecondaryButtonClick"
-            SecondaryButtonText="Cancel">
+            SecondaryButtonText="Cancelar">
             <ContentDialog.Resources>
                 <x:Double x:Key="ContentDialogMaxWidth">1000</x:Double>
             </ContentDialog.Resources>
@@ -764,7 +764,7 @@
                         Margin="0,0,0,8"
                         Foreground="{ThemeResource TextFillColorSecondary}"
                         Style="{ThemeResource CaptionTextBlockStyle}"
-                        Text="Lyrics Results" />
+                        Text="Resultados das letras" />
                     <Border
                         x:Name="LyricsListCard"
                         Padding="4,8,4,8"
@@ -847,7 +847,7 @@
                                                 VerticalAlignment="Center"
                                                 Background="Transparent"
                                                 BorderBrush="Transparent"
-                                                ToolTipService.ToolTip="Preview lyrics"
+                                                ToolTipService.ToolTip="Pré-visualizar letras"
                                                 Visibility="{x:Bind LyricsPath, Converter={StaticResource NullVisibilityConverter}}">
                                                 <FontIcon FontSize="16" Glyph="&#xE890;" />
                                                 <!--  preview glyph  -->
@@ -886,7 +886,7 @@
                                                 BorderBrush="Transparent"
                                                 Click="OpenLyricsButton_OnClick"
                                                 Tag="{Binding}"
-                                                ToolTipService.ToolTip="Open in explorer"
+                                                ToolTipService.ToolTip="Abrir no Explorador de Ficheiros"
                                                 Visibility="{x:Bind LyricsPath, Converter={StaticResource NullVisibilityConverter}}">
                                                 <FontIcon FontSize="16" Glyph="&#xE8DA;" />
                                             </Button>

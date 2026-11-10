@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AppDisplayName" xml:space="preserve"><value>FluentDL</value></data>
+  <data name="AppDescription" xml:space="preserve"><value>FluentDL</value></data>
+  <data name="Shell_Search.Content" xml:space="preserve"><value>Pesquisar</value></data>
+  <data name="Shell_Queue.Content" xml:space="preserve"><value>Fila</value></data>
+  <data name="Shell_LocalExplorer.Content" xml:space="preserve"><value>Biblioteca local</value></data>
+  <data name="Settings_Personalization.Text" xml:space="preserve"><value>Personalização</value></data>
+  <data name="Settings_Theme.Text" xml:space="preserve"><value>Tema</value></data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve"><value>Claro</value></data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve"><value>Escuro</value></data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve"><value>Predefinido</value></data>
+  <data name="Settings_About.Text" xml:space="preserve"><value>Sobre esta aplicação</value></data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve"><value>Ferramenta Fluent UI para pesquisar e editar metadados, executar comandos e gerir música.</value></data>
+  <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve"><value>Política de Privacidade</value></data>
+  <data name="AppNotificationSamplePayload" xml:space="preserve">
+    <value>&lt;toast launch="action=ToastClick"&gt;
+      &lt;visual&gt;
+        &lt;binding template="ToastGeneric"&gt;
+          &lt;text&gt;Notificação da aplicação&lt;/text&gt;
+          &lt;text&gt;&lt;/text&gt;
+          &lt;image placement="appLogoOverride" hint-crop="circle" src="{0}Assets/WindowIcon.ico"/&gt;
+        &lt;/binding&gt;
+      &lt;/visual&gt;
+      &lt;actions&gt;
+        &lt;action content="Definições" arguments="action=Settings"/&gt;
+      &lt;/actions&gt;
+    &lt;/toast&gt;</value>
+  </data>
+  <data name="QueueCompletePayload" xml:space="preserve">
+    <value>&lt;toast launch="action=ToastClick"&gt;
+      &lt;visual&gt;
+        &lt;binding template="ToastGeneric"&gt;
+          &lt;text&gt;Notificação da fila&lt;/text&gt;
+          &lt;text&gt;Todas as tarefas da fila foram concluídas.&lt;/text&gt;
+          &lt;image placement="appLogoOverride" hint-crop="circle" src="{0}Assets/WindowIcon.ico"/&gt;
+        &lt;/binding&gt;
+      &lt;/visual&gt;
+    &lt;/toast&gt;</value>
+  </data>
+  <data name="Shell_SplashScreen.Content" xml:space="preserve"><value>Ecrã de apresentação</value></data>
+  <data name="QueueCoverLoading" xml:space="preserve"><value>A carregar a capa...</value></data>
+  <data name="QueueCoverUnavailable" xml:space="preserve"><value>Capa indisponível</value></data>
+  <data name="Shell_Help.Content" xml:space="preserve"><value>Ajuda</value></data>
+  <data name="Shell_Help_Name" xml:space="preserve"><value>Ajuda</value></data>
+  <data name="Shell_Help_Tooltip" xml:space="preserve"><value>Abrir a wiki do FluentDL no navegador</value></data>
+  <data name="Shell_Help_ErrorTitle" xml:space="preserve"><value>Não foi possível abrir a Ajuda</value></data>
+  <data name="Shell_Help_ErrorMessage" xml:space="preserve"><value>Verifica se existe um navegador predefinido ou visita https://github.com/DerekYang2/FluentDL/wiki.</value></data>
+  <data name="Shell_Help_Close" xml:space="preserve"><value>Fechar</value></data>
+</root>
