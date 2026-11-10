@@ -90,6 +90,8 @@ public partial class App : Application
 
         try
         {
+            // Prefer Portuguese (Portugal) resources regardless of the Windows display language.
+            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "pt-PT";
             Log.Information("Application bootstrap starting; OS {OSVersion}, architecture {Architecture}, packaged {IsPackaged}",
                 Environment.OSVersion.Version,
                 System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture, RuntimeHelper.IsMSIX);
