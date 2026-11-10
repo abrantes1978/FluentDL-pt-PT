@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [master, custom/pt-PT-artwork-600]
     paths-ignore:
       - '**/*.md'
       - 'SampleGifs/**'
