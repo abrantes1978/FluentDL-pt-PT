@@ -274,18 +274,31 @@ namespace FluentDL.Helpers
                 byte[]? albumArt = null;
                 if (!string.IsNullOrWhiteSpace(AlbumArtPath))
                 {
-                    if (System.IO.File.Exists(AlbumArtPath)) // Local
+                    if (System.IO.File.Exists(AlbumArtPath))
                     {
-                        albumArt = await System.IO.File.ReadAllBytesAsync(AlbumArtPath); // Covert image to byte array
+                        albumArt = await System.IO.File.ReadAllBytesAsync(AlbumArtPath);
                     }
                     else
                     {
-                        albumArt = await WebDownloads.GetBytesAsync(AlbumArtPath); // Download image
+                        albumArt = await WebDownloads.GetBytesAsync(AlbumArtPath);
+                    }
+                }
+                else
+                {
+                    // Preserve the existing cover when only editing text metadata.
+                    var existingPictures = tfile.Tag.Pictures;
+                    if (existingPictures.Length > 0)
+                    {
+                        var frontCover = existingPictures.FirstOrDefault(picture => picture.Type == PictureType.FrontCover)
+                            ?? existingPictures[0];
+                        albumArt = frontCover.Data.Data;
                     }
                 }
 
-                if (albumArt != null) // Save cover art if it exists
+                if (albumArt != null) // Normalize and embed a 600 x 600 JPEG cover.
                 {
+                    albumArt = await ArtworkProcessor.CreateSquareJpegAsync(albumArt);
+
                     if (Path.GetExtension(tfile.Name) == ".ogg")
                     {
                         var custom = (TagLib.Ogg.XiphComment)tfile.GetTag(TagLib.TagTypes.Xiph);
