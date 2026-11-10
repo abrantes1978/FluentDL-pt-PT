@@ -299,20 +299,38 @@ namespace FluentDL.Helpers
                 {
                     albumArt = await ArtworkProcessor.CreateSquareJpegAsync(albumArt);
 
-                    if (Path.GetExtension(tfile.Name) == ".ogg")
+                    var extension = Path.GetExtension(tfile.Name).ToLowerInvariant();
+                    if (extension == ".ogg")
                     {
                         var custom = (TagLib.Ogg.XiphComment)tfile.GetTag(TagLib.TagTypes.Xiph);
-
-                        TagLib.Flac.Picture pic = new TagLib.Flac.Picture(new Picture(albumArt)) { MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg, Type = PictureType.FrontCover };
+                        TagLib.Flac.Picture pic = new TagLib.Flac.Picture(new Picture(albumArt))
+                        {
+                            MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg,
+                            Type = PictureType.FrontCover
+                        };
                         TagLib.ByteVector picData = pic.Render();
-
-
                         custom.SetField("METADATA_BLOCK_PICTURE", Convert.ToBase64String(picData.Data));
+                    }
+                    else if (extension == ".flac")
+                    {
+                        // FLAC stores cover art as a native PICTURE block, not an ID3v2 frame.
+                        TagLib.Flac.Picture pic = new TagLib.Flac.Picture(new Picture(albumArt))
+                        {
+                            MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg,
+                            Type = PictureType.FrontCover
+                        };
+                        tfile.Tag.Pictures = new IPicture[] { pic };
                     }
                     else
                     {
-                        TagLib.Id3v2.AttachmentFrame pic = new TagLib.Id3v2.AttachmentFrame { TextEncoding = StringType.Latin1, MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg, Type = PictureType.FrontCover, Data = albumArt };
-                        // Save cover art to FLAC file.
+                        // MP3 uses an ID3v2 APIC attachment frame.
+                        TagLib.Id3v2.AttachmentFrame pic = new TagLib.Id3v2.AttachmentFrame
+                        {
+                            TextEncoding = StringType.Latin1,
+                            MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg,
+                            Type = PictureType.FrontCover,
+                            Data = albumArt
+                        };
                         tfile.Tag.Pictures = new IPicture[] { pic };
                     }
                 }
