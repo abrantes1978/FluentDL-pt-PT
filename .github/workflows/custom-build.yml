@@ -1,0 +1,62 @@
+name: FluentDL Custom Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      architecture:
+        description: Windows architecture
+        required: true
+        type: choice
+        options:
+          - x64
+          - arm64
+        default: x64
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Test and package (${{ inputs.architecture }})
+    runs-on: ${{ inputs.architecture == 'arm64' && 'windows-11-arm' || 'windows-latest' }}
+    steps:
+      - name: Check out selected branch
+        uses: actions/checkout@v4
+
+      - name: Pull Git LFS assets
+        uses: ./.github/actions/lfs-pull
+
+      - name: Install .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Run core tests
+        run: dotnet test FluentDL.Core.Tests/FluentDL.Core.Tests.csproj -c Release
+
+      - name: Read package version
+        shell: pwsh
+        run: |
+          $manifest = [xml](Get-Content -Raw FluentDL/Package.appxmanifest)
+          $version = $manifest.Package.Identity.Version
+          if (-not $version) { throw "Could not read the package version from Package.appxmanifest." }
+          "VERSION=$version" >> $env:GITHUB_ENV
+          "Package version: $version" >> $env:GITHUB_STEP_SUMMARY
+
+      - name: Build sideload package
+        working-directory: FluentDL
+        run: >
+          dotnet run --file PackageSelect/BuildPackages.cs --
+          --version $env:VERSION
+          --channel Sideload
+          --architecture ${{ inputs.architecture }}
+          --no-sandbox
+          --output "${{ runner.temp }}/packages"
+
+      - name: Upload installable ZIP
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ runner.temp }}/packages/${{ env.VERSION }}/Sideload/FluentDL_${{ env.VERSION }}_${{ inputs.architecture }}.zip
+          archive: false
+          if-no-files-found: error
+          retention-days: 14
